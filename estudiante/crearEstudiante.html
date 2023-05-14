@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Crear Estudiante</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+  <header id="headerParcial"></header>
+  <main>
+    <div class="container">
+
+      <form id="formulario">
+        <div class="row">
+          <div class="col-11">
+            <h2>Crear Estudiante</h2>
+          </div>
+          <div class="col-1">
+            <a href="listaEstudiantes.html" class="btn btn-close btn-lg"></a>
+          </div>
+          <div id="alertWarning" class="alert alert-warning alert-dismissible fade show" role="alert" hidden>
+            <strong>Debe llenar todos los campos</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+          <div id="alertError" class="alert alert-danger alert-dismissible fade show" role="alert" hidden>
+            <strong>Hubo un error!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="mb-3">
+              <label for="" class="form-label">Cedula</label>
+              <input type="text" class="form-control" name="cedula" id="cedula" aria-describedby="helpId"
+                placeholder="Ingresa la cedula del estudiante" required>
+              <small id="helpId1" class="form-text text-muted">Cedula aca</small>
+            </div>
+
+          </div>
+          <div class="col">
+            <div class="mb-3">
+              <label for="" class="form-label">Nombre</label>
+              <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId"
+                placeholder="Ingresa el nombre del estudiante" required>
+              <small id="helpId2" class="form-text text-muted">Nombre aca</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="mb-3">
+              <label for="" class="form-label">Apellido Parterno</label>
+              <input type="text" class="form-control" name="apellidoPaterno" id="apellidoPaterno"
+                aria-describedby="helpId" placeholder="Ingresa el apellido paterno del estudiante" required>
+              <small id="helpId3" class="form-text text-muted">Apellido Paterno aca</small>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3">
+              <label for="" class="form-label">Apellido Materno</label>
+              <input type="text" class="form-control" name="apellidoMaterno" id="apellidoMaterno"
+                aria-describedby="helpId" placeholder="Ingresa el apellido materno del estudiante" required>
+              <small id="helpId4" class="form-text text-muted">Apellido Materno aca</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="mb-3">
+              <label for="" class="form-label">Telefono</label>
+              <input type="text" class="form-control" name="telefono" id="telefono" aria-describedby="helpId"
+                placeholder="Ingresa el telefono del estudiante" required>
+              <small id="helpId5" class="form-text text-muted">Telefono aca</small>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3">
+              <label for="" class="form-label">Telefono Celular</label>
+              <input type="text" class="form-control" name="telefonoCelular" id="telefonoCelular"
+                aria-describedby="helpId" placeholder="Ingresa el telefono ceular del estudiante" required>
+              <small id="helpId6" class="form-text text-muted">Telefono aca</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="mb-3">
+              <label for="" class="form-label">Correo Electronico</label>
+              <input type="text" class="form-control" name="correo" id="correo" aria-describedby="helpId"
+                placeholder="Ingresa el correo del estudiante" required>
+              <small id="helpId72" class="form-text text-muted">Correo aca</small>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3">
+              <label for="" class="form-label">Nacionalidad</label>
+              <input type="text" class="form-control" name="nacionalidad" id="nacionalidad" aria-describedby="helpId"
+                placeholder="Ingrese la nacionalidad del estudiante" required>
+              <small id="helpId8" class="form-text text-muted">Nacionalidad aca</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="mb-3">
+              <label for="" class="form-label">Direccion</label>
+              <input type="text" class="form-control" name="direccion" id="direccion" aria-describedby="helpId"
+                placeholder="Ingrese la direccion del estudiante" required>
+              <small id="helpId82" class="form-text text-muted">Direccion aca</small>
+            </div>
+
+          </div>
+          <div class="col">
+            <div class="mb-3">
+              <label for="" class="form-label">Fecha de Nacimiento</label>
+              <input type="text" class="form-control" name="fechaNacimiento" id="fechaNacimiento"
+                aria-describedby="helpId" placeholder="Ingresa la fecha de nacimiento en este formato 12-02-2002"
+                required>
+              <small id="helpId7" class="form-text text-muted">Fecha de Nacimiento aca</small>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="mb-3">
+              <label for="" class="form-label">Sexo</label>
+              <input type="text" class="form-control" name="sexo" id="sexo" aria-describedby="helpId"
+                placeholder="Ingrese el sexo del estudiante" required>
+              <small id="helpId9" class="form-text text-muted">Sexo aca</small>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3">
+              <label for="" class="form-label">idCarrera</label>
+              <input type="text" class="form-control" name="idCarrera" id="idCarrera" aria-describedby="helpId"
+                placeholder="Ingrese el idCarrera del estudiante" required>
+              <small id="helpId9" class="form-text text-muted">idCarrera aca</small>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="mb-3">
+              <label for="" class="form-label">Usuario</label>
+              <input type="text" class="form-control" name="usuario" id="usuario" aria-describedby="helpId"
+                placeholder="Ingrese el Usuario del estudiante" required>
+              <small id="helpId9" class="form-text text-muted">Usuario aca</small>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="mb-3">
+              <button type="submit" class="btn btn-primary">Guardar</button>
+              <button type="reset" class="btn btn-danger">Limpiar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    </form>
+    </div>
+  </main>
+  <footer class="text-muted py-5" id="footerParcial"></footer>
+
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+
+  <!-- Josue JavaScript Libraries -->
+  <script src="/vistasParciales.js"></script>
+  <script src="crearEstudiante.js"></script>
+</body>
+
+</html>

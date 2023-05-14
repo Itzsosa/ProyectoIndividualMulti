@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Lista Cursos</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <header id="headerParcial"></header>
+    <main>
+      <h1>Cursos</h1>
+      <a class="btn btn-primary my-3" href="crearCurso.html" role="button">Crear Curso</a>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover table-borderless table-primary align-middle">
+          <thead class="table-primary">
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Descripcion</th>
+              <th>Tiempo</th>
+              <th>Usuario</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="resultados" class="table-group-divider"></tbody>
+          <tfoot></tfoot>
+        </table>
+      </div>
+    </main>
+    <footer class="text-muted py-5" id="footerParcial"></footer>
+
+  </div>
+  <!-- Modal Editar -->
+  <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+  <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+    aria-labelledby="modalTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitleId">Modificar curso</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formulario">
+            <input type="hidden" id="cursoId" name="cursoId">
+            <input type="hidden" id="usuario" name="usuario">
+            <div class="mb-3">
+              <label for="" class="form-label">Nombre</label>
+              <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId"
+                placeholder="Ingresa el nombre del curso" required>
+              <small id="helpId1" class="form-text text-muted">Nombre aca</small>
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Descripcion</label>
+              <input type="text" class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId"
+                placeholder="Ingresa la descripcion del curso" required>
+              <small id="helpId2" class="form-text text-muted">Descripcion aca</small>
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Tiempo</label>
+              <input type="text" class="form-control" name="tiempo" id="tiempo" aria-describedby="helpId"
+                placeholder="Ingresa el tiempo del curso" required>
+              <small id="helpId3" class="form-text text-muted">Tiempo aca</small>
+            </div>
+            <div class="mb-3">
+              <button type="submit" class="btn btn-primary">Editar</button>
+              <button type="reset" class="btn btn-danger">Limpiar</button>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Eliminar -->
+  <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+  <div class="modal fade" id="modalEliminar" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+    role="dialog" aria-labelledby="Eliminar" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="Eliminar">Eliminar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <h5>Seguro que desea eliminar el curso:</h5>
+          <form id="formulario">
+            <div class="mb-3">
+              <label for="" class="form-label">Id</label>
+              <input type="text" class="form-control" name="cursoIdEliminar" id="cursoIdEliminar"
+                aria-describedby="helpId" placeholder="Ingresa el nombre del curso" disabled>
+            </div>
+
+            <div class="mb-3">
+              <label for="" class="form-label">Nombre</label>
+              <input type="text" class="form-control" name="nombreEliminar" id="nombreEliminar"
+                aria-describedby="helpId" placeholder="Ingresa el nombre del curso" disabled>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" onclick="borrarCurso()">Aceptar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalDetalles" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+    role="dialog" aria-labelledby="Detalles" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="Detalles">Detalles</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h5></h5>
+          <form id="formulario">
+            <div class="mb-3">
+              <label for="" class="form-label">Id</label>
+              <input type="text" class="form-control" name="cursoIdDetalles" id="cursoIdDetalles"
+                aria-describedby="helpId1" disabled>
+            </div>
+
+            <div class="mb-3">
+              <label for="" class="form-label">Nombre</label>
+              <input type="text" class="form-control" name="nombreDetalles" id="nombreDetalles"
+                aria-describedby="helpId2" disabled>
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Descripcion</label>
+              <input type="text" class="form-control" name="descripcionDetalles" id="descripcionDetalles"
+                aria-describedby="helpId3" disabled>
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Tiempo</label>
+              <input type="text" class="form-control" name="tiempoDetalles" id="tiempoDetalles"
+                aria-describedby="helpId4" disabled>
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Usuario</label>
+              <input type="text" class="form-control" name="usuarioDetalles" id="usuarioDetalles"
+                aria-describedby="helpId5" disabled>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+    crossorigin="anonymous"></script>
+
+  <script src="/vistasParciales.js"></script>
+  <script src="cursoController.js"></script>
+
+</body>
+
+</html>
