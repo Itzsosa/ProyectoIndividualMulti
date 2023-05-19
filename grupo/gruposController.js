@@ -122,5 +122,3 @@ function mostrarDetallesGrupo(id, nombre) {
 }
 
 cargarDatos();
-
-cargarDatos();
