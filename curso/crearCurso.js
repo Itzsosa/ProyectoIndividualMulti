@@ -9,20 +9,18 @@ fromulario.addEventListener("submit", function (e) {
   let nombre = document.getElementById("nombre").value;
   let descripcion = document.getElementById("descripcion").value;
   let tiempo = document.getElementById("tiempo").value;
-  let usuario = document.getElementById("usuario").value;
 
   var datosEnviar = {
     nombre: nombre,
     descripcion: descripcion,
     tiempo: tiempo,
-    usuario: usuario,
+    usuario: "Itzsosa",
   };
 
   if (
     nombre.trim() === "" ||
     descripcion.trim() === "" ||
-    tiempo.trim() === "" ||
-    usuario.trim() === ""
+    tiempo.trim() === ""
   ) {
     alertWarning.hidden = false;
     return;

@@ -46,6 +46,7 @@ function setTable(datos) {
 }
 
 const myModal = new bootstrap.Modal(document.getElementById("modalId"));
+const select = document.getElementById("sexo");
 function mostrarModificarEstudiante(
   id,
   cedula,
@@ -64,6 +65,11 @@ function mostrarModificarEstudiante(
 ) {
   myModal.show();
 
+  if (sexo == "Masculino" || sexo == "Femenino" || sexo == "Indefinido") {
+  } else {
+    select.innerHTML += `<option value="${sexo}"> ${sexo} </option>`;
+  }
+
   document.getElementById("id").value = id;
   document.getElementById("cedula").value = cedula;
   document.getElementById("nombre").value = nombre;
@@ -76,9 +82,23 @@ function mostrarModificarEstudiante(
   document.getElementById("direccion").value = direccion;
   document.getElementById("apellidoPaterno").value = apellidopaterno;
   document.getElementById("apellidoMaterno").value = apellidomaterno;
-  document.getElementById("idCarrera").value = idCarreras;
+  document.getElementById("listaGrupo").value = idCarreras;
   document.getElementById("usuario").value = usuario;
 }
+
+const botonesCerrar = document.querySelectorAll(
+  '.modal-header .btn-close, .modal-footer .btn-secondary[data-bs-dismiss="modal"]'
+);
+
+// Recorrer los botones y añadir evento de clic a cada uno
+botonesCerrar.forEach(function (botonCerrar) {
+  botonCerrar.addEventListener("click", function (event) {
+    // Acciones a realizar cuando se cierra el modal
+    select.innerHTML = `<option value="Masculino"> Masculino </option>
+    <option value="Femenino"> Femenino </option>
+    <option value="Indefinido"> Indefinido </option>`;
+  });
+});
 
 var formulario = document.getElementById("formulario");
 
@@ -98,7 +118,7 @@ formulario.addEventListener("submit", function (e) {
   let direccion = document.getElementById("direccion").value;
   let apellidopaterno = document.getElementById("apellidoPaterno").value;
   let apellidomaterno = document.getElementById("apellidoMaterno").value;
-  let idCarreras = document.getElementById("idCarrera").value;
+  let idCarreras = document.getElementById("listaGrupo").value;
   let usuario = document.getElementById("usuario").value;
 
   var datosEnviar = {
@@ -221,3 +241,25 @@ function mostrarDetallesCurso(
 }
 
 cargarDatos();
+
+var contenidoListaGrupo = document.querySelector("#listaGrupo");
+
+function cargarDatosSelect() {
+  fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaGrupo.php")
+    .then((respuesta) => respuesta.json()) //Retorna un promise
+    .then((datosrespuesta) => {
+      setTableSelect(datosrespuesta.data);
+    })
+    .catch(console.log);
+}
+
+function setTableSelect(datos) {
+  console.log("Datos", datos);
+
+  for (const valor of datos) {
+    console.log("valor", valor);
+    contenidoListaGrupo.innerHTML += `<option value="${valor.id}"> ${valor.nombre} </option>`;
+  }
+}
+
+cargarDatosSelect();

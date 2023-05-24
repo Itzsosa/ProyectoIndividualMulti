@@ -78,7 +78,7 @@
           <div class="col">
             <div class="mb-3">
               <label for="" class="form-label">Telefono</label>
-              <input type="text" class="form-control" name="telefono" id="telefono" aria-describedby="helpId"
+              <input type="number" class="form-control" name="telefono" id="telefono" aria-describedby="helpId"
                 placeholder="Ingresa el telefono del profesor" required>
               <small id="helpId5" class="form-text text-muted">Telefono aca</small>
             </div>
@@ -86,7 +86,7 @@
           <div class="col">
             <div class="mb-3">
               <label for="" class="form-label">Telefono Celular</label>
-              <input type="text" class="form-control" name="telefonoCelular" id="telefonoCelular"
+              <input type="number" class="form-control" name="telefonoCelular" id="telefonoCelular"
                 aria-describedby="helpId" placeholder="Ingresa el telefono ceular del profesor" required>
               <small id="helpId6" class="form-text text-muted">Telefono aca</small>
             </div>
@@ -97,7 +97,7 @@
           <div class="col">
             <div class="mb-3">
               <label for="" class="form-label">Correo Electronico</label>
-              <input type="text" class="form-control" name="correo" id="correo" aria-describedby="helpId"
+              <input type="email" class="form-control" name="correo" id="correo" aria-describedby="helpId"
                 placeholder="Ingresa el correo del profesor" required>
               <small id="helpId72" class="form-text text-muted">Correo aca</small>
             </div>
@@ -126,9 +126,9 @@
             <div class="mb-3">
               <label for="" class="form-label">Fecha de Nacimiento</label>
               <input type="text" class="form-control" name="fechaNacimiento" id="fechaNacimiento"
-                aria-describedby="helpId" placeholder="Ingresa la fecha de nacimiento en este formato 12-02-2002"
+                aria-describedby="helpId" placeholder="Ingresa la fecha de nacimiento en este formato 2001-07-23"
                 required>
-              <small id="helpId7" class="form-text text-muted">Fecha de Nacimiento aca</small>
+              <small id="helpId7" class="form-text text-muted">Fecha de Nacimiento formato 2001-07-23</small>
             </div>
           </div>
 
@@ -137,30 +137,25 @@
           <div class="col">
             <div class="mb-3">
               <label for="" class="form-label">Sexo</label>
-              <input type="text" class="form-control" name="sexo" id="sexo" aria-describedby="helpId"
-                placeholder="Ingrese el sexo del profesor" required>
+              <select class="form-select" name="select" id="sexo" required>
+                <option value=""> Seleccione una opción</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino"> Femenino</option>
+                <option value="Indefinido"> Indefenido</option>
+              </select>
               <small id="helpId9" class="form-text text-muted">Sexo aca</small>
             </div>
           </div>
           <div class="col">
             <div class="mb-3">
-              <label for="" class="form-label">idCarrera</label>
-              <input type="text" class="form-control" name="idCarrera" id="idCarrera" aria-describedby="helpId"
-                placeholder="Ingrese el idCarrera del profesor" required>
-              <small id="helpId9" class="form-text text-muted">idCarrera aca</small>
+              <label for="" class="form-label">Grupo</label>
+              <select class="form-select form-select" name="listaGrupo" id="listaGrupo" required>
+                <option value="" selected>Seleccione una opcion</option>
+              </select>
+              <small id="helpId9" class="form-text text-muted">Grupo aca</small>
             </div>
           </div>
 
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="mb-3">
-              <label for="" class="form-label">Usuario</label>
-              <input type="text" class="form-control" name="usuario" id="usuario" aria-describedby="helpId"
-                placeholder="Ingrese el Usuario del profesor" required>
-              <small id="helpId9" class="form-text text-muted">Usuario aca</small>
-            </div>
-          </div>
         </div>
         <div class="row">
           <div class="col">

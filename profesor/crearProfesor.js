@@ -17,8 +17,7 @@ fromulario.addEventListener("submit", function (e) {
   let direccion = document.getElementById("direccion").value;
   let fechaNacimiento = document.getElementById("fechaNacimiento").value;
   let sexo = document.getElementById("sexo").value;
-  let idCarrera = document.getElementById("idCarrera").value;
-  let usuario = document.getElementById("usuario").value;
+  let idCarrera = document.getElementById("listaGrupo").value;
 
   var datosEnviar = {
     cedula: cedula,
@@ -33,7 +32,7 @@ fromulario.addEventListener("submit", function (e) {
     apellidomaterno: apellidomaterno,
     nacionalidad: nacionalidad,
     idCarreras: idCarrera,
-    usuario: usuario,
+    usuario: "Itzsosa",
   };
 
   fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarProfesores.php", {
@@ -53,3 +52,25 @@ fromulario.addEventListener("submit", function (e) {
       alertaError.hidden = false;
     });
 });
+
+var contenidoListaGrupo = document.querySelector("#listaGrupo");
+
+function cargarDatosSelect() {
+  fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaGrupo.php")
+    .then((respuesta) => respuesta.json()) //Retorna un promise
+    .then((datosrespuesta) => {
+      setTable(datosrespuesta.data);
+    })
+    .catch(console.log);
+}
+
+function setTable(datos) {
+  console.log("Datos", datos);
+
+  for (const valor of datos) {
+    console.log("valor", valor);
+    contenidoListaGrupo.innerHTML += `<option value="${valor.id}"> ${valor.nombre} </option>`;
+  }
+}
+
+cargarDatosSelect();
