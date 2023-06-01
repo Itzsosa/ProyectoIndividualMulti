@@ -2,7 +2,7 @@ function llenarHeaderFooter() {
   var headerParcial = document.querySelector("#headerParcial");
 
   headerParcial.innerHTML += `
-  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="container">
     <a class="navbar-brand" href="/index.html">Lista de Elementos</a>
     <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"

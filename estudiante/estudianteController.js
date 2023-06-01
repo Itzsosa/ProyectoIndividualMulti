@@ -254,8 +254,6 @@ function cargarDatosSelect() {
 }
 
 function setTableSelect(datos) {
-  console.log("Datos", datos);
-
   for (const valor of datos) {
     console.log("valor", valor);
     contenidoListaGrupo.innerHTML += `<option value="${valor.id}"> ${valor.nombre} </option>`;
